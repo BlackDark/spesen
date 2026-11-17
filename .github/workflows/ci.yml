@@ -22,8 +22,6 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
-  # renovate: datasource=github-releases depName=rhysd/actionlint
-  ACTIONLINT_VERSION: "1.7.12"
   # renovate: datasource=npm depName=renovate
   RENOVATE_VERSION: "44.236.5"
 
@@ -197,10 +195,11 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: actionlint
-        run: |
-          bash <(curl -fsSL "https://raw.githubusercontent.com/rhysd/actionlint/v${ACTIONLINT_VERSION}/scripts/download-actionlint.bash") "$ACTIONLINT_VERSION"
-          ./actionlint -color
+      - uses: jdx/mise-action@236a21c3b91f5db6d4e174b348674a0f0caac06d # v5.2.9
+        with:
+          install_args: actionlint
+          cache_save: false
+      - run: actionlint -color
 
   renovate-config:
     needs: changes
