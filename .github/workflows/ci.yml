@@ -57,9 +57,9 @@ jobs:
           fi
           changed=$(git diff --name-only HEAD^1 HEAD)
           has() { grep -qE "$1" <<< "$changed" && echo true || echo false; }
-          go=$(has '^(cmd/|internal/|data/|go\.(mod|sum)$|mise\.toml$)')
-          web=$(has '^(web/|mise\.toml$)')
-          docker=$(has '^(docker/|cmd/|internal/|data/|web/|go\.(mod|sum)$)')
+          go=$(has '^(cmd/|internal/|data/|go\.(mod|sum)$|mise\.toml$|\.github/workflows/ci\.yml$)')
+          web=$(has '^(web/|mise\.toml$|\.github/workflows/ci\.yml$)')
+          docker=$(has '^(docker/|cmd/|internal/|data/|web/|go\.(mod|sum)$|\.github/workflows/ci\.yml$)')
           # e2e builds and exercises both sides together, so either changing triggers it
           e2e=false
           { [ "$go" = true ] || [ "$web" = true ]; } && e2e=true
