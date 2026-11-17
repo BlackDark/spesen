@@ -55,7 +55,7 @@ jobs:
             } >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          changed=$(git diff --name-only HEAD^1 HEAD)
+          changed=$(git diff --no-renames --name-only HEAD^1 HEAD)
           has() { grep -qE "$1" <<< "$changed" && echo true || echo false; }
           go=$(has '^(cmd/|internal/|data/|go\.(mod|sum)$|mise\.toml$|\.github/workflows/ci\.yml$)')
           web=$(has '^(web/|mise\.toml$|\.github/workflows/ci\.yml$)')
