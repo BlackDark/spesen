@@ -10,6 +10,9 @@
     "github>blackdark/renovate-base//go.json5",
     ":pinVersions", // exact versions in package.json; this is an app, not a library
   ],
+  updateNotScheduled: false,
+  platformAutomerge: true, // Green PRs merge even on a stale base on purpose; merge queue maybe later.
+  separateMultipleMajor: true,
 
   // Go: rewrite import paths on /vN majors (gomodTidy already comes from go.json5).
   postUpdateOptions: ["gomodTidy", "gomodUpdateImportPaths"],
@@ -48,6 +51,13 @@
       matchFileNames: ["web/tools/codegen/package.json"],
       matchPackageNames: ["typescript"],
       allowedVersions: "<7",
+    },
+    {
+      description: "Majors: one PR each, merged by hand",
+      groupName: null,
+      matchUpdateTypes: ["major"],
+      addLabels: ["major"],
+      automerge: false,
     },
   ],
 

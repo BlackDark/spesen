@@ -22,8 +22,6 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
-  # renovate: datasource=github-releases depName=rhysd/actionlint
-  ACTIONLINT_VERSION: "1.7.12"
   # renovate: datasource=npm depName=renovate
   RENOVATE_VERSION: "44.236.5"
 
@@ -55,11 +53,11 @@ jobs:
             } >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          changed=$(git diff --name-only HEAD^1 HEAD)
+          changed=$(git diff --no-renames --name-only -z HEAD^1 HEAD | xargs -0 -n1 printf '%s\n')
           has() { grep -qE "$1" <<< "$changed" && echo true || echo false; }
-          go=$(has '^(cmd/|internal/|data/|go\.(mod|sum)$|mise\.toml$)')
-          web=$(has '^(web/|mise\.toml$)')
-          docker=$(has '^(docker/|cmd/|internal/|data/|web/|go\.(mod|sum)$)')
+          go=$(has '^(cmd/|internal/|data/|go\.(mod|sum)$|mise\.toml$|\.github/workflows/ci\.yml$)')
+          web=$(has '^(web/|mise\.toml$|\.github/workflows/ci\.yml$)')
+          docker=$(has '^(docker/|cmd/|internal/|data/|web/|go\.(mod|sum)$|\.github/workflows/ci\.yml$)')
           # e2e builds and exercises both sides together, so either changing triggers it
           e2e=false
           { [ "$go" = true ] || [ "$web" = true ]; } && e2e=true
@@ -82,6 +80,8 @@ jobs:
         with:
           persist-credentials: false
       - uses: jdx/mise-action@236a21c3b91f5db6d4e174b348674a0f0caac06d # v5.2.9
+        with:
+          cache_save: ${{ github.workflow == 'CI' && github.ref == 'refs/heads/main' && github.event_name == 'push' }}
       - name: Format
         run: test -z "$(gofmt -l cmd internal web data | tee /dev/stderr)"
       - run: go vet ./...
@@ -103,6 +103,8 @@ jobs:
         with:
           persist-credentials: false
       - uses: jdx/mise-action@236a21c3b91f5db6d4e174b348674a0f0caac06d # v5.2.9
+        with:
+          cache_save: ${{ github.workflow == 'CI' && github.ref == 'refs/heads/main' && github.event_name == 'push' }}
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
       - name: Generated API client is up to date
@@ -122,6 +124,8 @@ jobs:
         with:
           persist-credentials: false
       - uses: jdx/mise-action@236a21c3b91f5db6d4e174b348674a0f0caac06d # v5.2.9
+        with:
+          cache_save: ${{ github.workflow == 'CI' && github.ref == 'refs/heads/main' && github.event_name == 'push' }}
       - run: pnpm --dir web install --frozen-lockfile
       - run: pnpm --dir web build
       - run: CGO_ENABLED=0 go build -o bin/spesen ./cmd/spesen
@@ -155,7 +159,7 @@ jobs:
           file: docker/Dockerfile
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-to: ${{ github.workflow == 'CI' && github.ref == 'refs/heads/main' && github.event_name == 'push' && 'type=gha,mode=max' || '' }}
       - name: Load amd64 image
         uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
@@ -191,10 +195,11 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: actionlint
-        run: |
-          bash <(curl -fsSL "https://raw.githubusercontent.com/rhysd/actionlint/v${ACTIONLINT_VERSION}/scripts/download-actionlint.bash") "$ACTIONLINT_VERSION"
-          ./actionlint -color .github/workflows/*.yml
+      - uses: jdx/mise-action@236a21c3b91f5db6d4e174b348674a0f0caac06d # v5.2.9
+        with:
+          install_args: actionlint
+          cache_save: false
+      - run: actionlint -color
 
   renovate-config:
     needs: changes

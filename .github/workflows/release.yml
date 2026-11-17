@@ -69,4 +69,3 @@ jobs:
             org.opencontainers.image.licenses=AGPL-3.0-only
           build-args: VERSION=${{ steps.version.outputs.version }}
           cache-from: type=gha
-          cache-to: type=gha,mode=max
