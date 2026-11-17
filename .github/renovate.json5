@@ -11,7 +11,7 @@
     ":pinVersions", // exact versions in package.json; this is an app, not a library
   ],
   updateNotScheduled: false,
-  platformAutomerge: true,
+  platformAutomerge: false, // Enable only after the main ruleset requires up-to-date branches.
   separateMultipleMajor: true,
 
   // Go: rewrite import paths on /vN majors (gomodTidy already comes from go.json5).
