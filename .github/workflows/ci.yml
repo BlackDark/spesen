@@ -53,15 +53,25 @@ jobs:
             } >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          changed=$(git diff --no-renames --name-only -z HEAD^1 HEAD | xargs -0 -n1 printf '%s\n')
-          has() { grep -qE "$1" <<< "$changed" && echo true || echo false; }
-          go=$(has '^(cmd/|internal/|data/|go\.(mod|sum)$|mise\.toml$|\.github/workflows/ci\.yml$)')
-          web=$(has '^(web/|mise\.toml$|\.github/workflows/ci\.yml$)')
-          docker=$(has '^(docker/|cmd/|internal/|data/|web/|go\.(mod|sum)$|\.github/workflows/ci\.yml$)')
+          git diff --no-renames --name-only -z HEAD^1 HEAD > "$RUNNER_TEMP/changed-paths"
+          go=false web=false docker=false lint=false
+          while IFS= read -r -d '' path; do
+            case "$path" in
+              cmd/*|internal/*|data/*|go.mod|go.sum) go=true docker=true ;;
+              web/*) web=true docker=true ;;
+              docker/*) docker=true ;;
+              .github/workflows/ci.yml) go=true web=true docker=true ;;
+            esac
+            case "$path" in
+              mise.toml|.mise.toml|mise.lock|.config/mise*|mise/*|.mise/*) go=true web=true ;;
+            esac
+            case "$path" in
+              .github/*|renovate.json|renovate.json5) lint=true ;;
+            esac
+          done < "$RUNNER_TEMP/changed-paths"
           # e2e builds and exercises both sides together, so either changing triggers it
           e2e=false
           { [ "$go" = true ] || [ "$web" = true ]; } && e2e=true
-          lint=$(has '^(\.github/|renovate\.json5?$)')
           {
             echo "lint=$lint"
             echo "go=$go"
