@@ -1,7 +1,7 @@
 package export
 
 import (
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/calc"
+	"github.com/blackdark/spesen/internal/calc"
 )
 
 // SchemaVersion of the snapshot JSON in exports.

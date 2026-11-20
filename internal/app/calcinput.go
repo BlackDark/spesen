@@ -3,7 +3,7 @@ package app
 import (
 	"context"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/calc"
+	"github.com/blackdark/spesen/internal/calc"
 )
 
 // userData is everything loaded for one user's calculation.

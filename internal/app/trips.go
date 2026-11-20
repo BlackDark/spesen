@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/calc"
+	"github.com/blackdark/spesen/internal/calc"
 )
 
 // LocalTime is "YYYY-MM-DDTHH:MM" in the accompanying IANA zone.

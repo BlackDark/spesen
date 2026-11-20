@@ -3,7 +3,7 @@ package app
 import (
 	"context"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/calc"
+	"github.com/blackdark/spesen/internal/calc"
 )
 
 // TripDetail is a trip with its server-side calculation (C03).

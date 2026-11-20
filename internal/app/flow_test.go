@@ -18,8 +18,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/db"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/export"
+	"github.com/blackdark/spesen/internal/db"
+	"github.com/blackdark/spesen/internal/export"
 )
 
 // typstBin finds Typst for integration tests (SPESEN_TYPST or PATH).

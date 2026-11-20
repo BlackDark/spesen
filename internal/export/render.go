@@ -16,7 +16,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/calc"
+	"github.com/blackdark/spesen/internal/calc"
 )
 
 //go:embed templates/claim.typ

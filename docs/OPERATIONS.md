@@ -98,7 +98,7 @@ Domestic rates for a new year are seeded in `internal/rates` (they rarely change
 Releases are automated via [release-please](https://github.com/googleapis/release-please):
 every Conventional Commit push to `main` updates (or opens) a release pull request with the
 next version and changelog. Merging that PR tags `vX.Y.Z`, creates the GitHub release, and
-triggers the image build, pushing to `ghcr.io/blackdark/vc-geschaeftsausgabentest` with the
+triggers the image build, pushing to `ghcr.io/blackdark/spesen` with the
 tags `X.Y.Z`, `X.Y` and `latest`.
 
 To build and push an already-tagged version manually (e.g. a hotfix tag created by hand), run

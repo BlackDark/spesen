@@ -28,7 +28,7 @@ Ordinary implementation choices made without changing scope or financial results
 
 | Topic | Decision |
 | --- | --- |
-| Name | The application is called "Spesen"; binary `spesen`, image `ghcr.io/blackdark/vc-geschaeftsausgabentest`. |
+| Name | The application is called "Spesen"; binary `spesen`, image `ghcr.io/blackdark/spesen`. |
 | Numbers | Receipts `B-<year>-<0001>` per user and confirmation year; claims `A-<year>-<001>` per user, employer and year of first submission. Allocated inside the committing transaction, so failed attempts consume nothing. |
 | Revision check | The preview returns a revision hash of the claim's inputs and results; submission is refused when it changed (warnings are acknowledged for exactly what was shown). Transactional submission: [ADR 0002](adr/0002-single-connection-sqlite-transactional-submission.md). |
 | Nights | Each night of a multi-day trip needs an explicit arrangement; an unset night is a blocker. A two-date trip with "no overnight stay" is treated as one-day travel (C05). |

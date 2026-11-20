@@ -1,4 +1,4 @@
-module github.com/blackdark/vc-geschaeftsausgabentest
+module github.com/blackdark/spesen
 
 go 1.27.4
 

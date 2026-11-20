@@ -8,7 +8,7 @@ import (
 
 	"github.com/danielgtaylor/huma/v2"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/app"
+	"github.com/blackdark/spesen/internal/app"
 )
 
 func (s *Server) registerTrips(api huma.API) {

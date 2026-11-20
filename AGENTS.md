@@ -82,7 +82,7 @@ thing: split it past ~400 lines, a function past ~80. A refactor changes no beha
 
 ### Issue tracker
 
-Issues live in GitHub Issues (`BlackDark/vc-geschaeftsausgabentest`), via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+Issues live in GitHub Issues (`BlackDark/spesen`), via the `gh` CLI. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 

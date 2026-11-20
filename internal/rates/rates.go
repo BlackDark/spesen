@@ -13,9 +13,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/data"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/calc"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/money"
+	"github.com/blackdark/spesen/data"
+	"github.com/blackdark/spesen/internal/calc"
+	"github.com/blackdark/spesen/internal/money"
 )
 
 // Row is one validated meal/lodging rate.

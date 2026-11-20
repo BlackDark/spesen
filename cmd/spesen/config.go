@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/api"
+	"github.com/blackdark/spesen/internal/api"
 )
 
 // Config is read from SPESEN_* environment variables. Secrets can also be

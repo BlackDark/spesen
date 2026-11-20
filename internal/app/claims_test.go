@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/calc"
+	"github.com/blackdark/spesen/internal/calc"
 )
 
 // claimFor creates a draft over the period and keeps only the given trips.

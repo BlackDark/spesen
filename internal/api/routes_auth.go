@@ -6,7 +6,7 @@ import (
 
 	"github.com/danielgtaylor/huma/v2"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/app"
+	"github.com/blackdark/spesen/internal/app"
 )
 
 // SessionInfo tells the UI how to log in and who is logged in.

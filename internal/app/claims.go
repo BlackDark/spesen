@@ -10,9 +10,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/calc"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/export"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/money"
+	"github.com/blackdark/spesen/internal/calc"
+	"github.com/blackdark/spesen/internal/export"
+	"github.com/blackdark/spesen/internal/money"
 )
 
 // ClaimInput creates a claim for an inclusive period.

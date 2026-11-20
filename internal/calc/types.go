@@ -6,7 +6,7 @@ package calc
 import (
 	"time"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/money"
+	"github.com/blackdark/spesen/internal/money"
 )
 
 // Cents re-exports money.Cents for brevity.

@@ -21,12 +21,12 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/api"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/app"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/db"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/export"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/rates"
-	"github.com/blackdark/vc-geschaeftsausgabentest/web"
+	"github.com/blackdark/spesen/internal/api"
+	"github.com/blackdark/spesen/internal/app"
+	"github.com/blackdark/spesen/internal/db"
+	"github.com/blackdark/spesen/internal/export"
+	"github.com/blackdark/spesen/internal/rates"
+	"github.com/blackdark/spesen/web"
 )
 
 // version is set at build time with -ldflags "-X main.version=...".
