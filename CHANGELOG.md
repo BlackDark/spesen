@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/BlackDark/spesen/compare/v0.2.1...v0.2.2) (2026-11-20)
+
+
+### Bug Fixes
+
+* pull the spesen image in compose ([#80](https://github.com/BlackDark/spesen/issues/80)) ([30241b1](https://github.com/BlackDark/spesen/commit/30241b1944629b0246e487a22c958e5bac064c95))
+
 ## [0.2.1](https://github.com/BlackDark/spesen/compare/v0.2.0...v0.2.1) (2026-11-20)
 
 
