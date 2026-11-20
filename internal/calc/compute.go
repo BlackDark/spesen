@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/money"
+	"github.com/blackdark/spesen/internal/money"
 )
 
 type computer struct {

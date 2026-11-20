@@ -4,7 +4,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/money"
+	"github.com/blackdark/spesen/internal/money"
 )
 
 const oneDayThreshold = 8 * time.Hour

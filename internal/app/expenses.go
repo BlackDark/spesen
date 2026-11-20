@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/calc"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/money"
+	"github.com/blackdark/spesen/internal/calc"
+	"github.com/blackdark/spesen/internal/money"
 )
 
 // ExpenseInput creates or updates an expense. TripID is fixed at creation:

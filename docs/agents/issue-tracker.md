@@ -16,7 +16,7 @@ Issues and specs for this repo live as GitHub issues. Use the `gh` CLI for all o
 
 Infer the repo from `git remote -v`; `gh` does this automatically when run inside a clone.
 
-File issues only into the user's own repo (`BlackDark/vc-geschaeftsausgabentest`). Before the first `gh issue create` of a session, check the target with `gh repo view --json nameWithOwner` and confirm it with the user if it is not this repo.
+File issues only into the user's own repo (`BlackDark/spesen`). Before the first `gh issue create` of a session, check the target with `gh repo view --json nameWithOwner` and confirm it with the user if it is not this repo.
 
 ## Pull requests as a triage surface
 

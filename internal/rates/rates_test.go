@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/data"
+	"github.com/blackdark/spesen/data"
 )
 
 func countries(t *testing.T) map[string]string {

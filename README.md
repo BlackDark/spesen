@@ -6,7 +6,7 @@
 Record trips, receipts and purchases on your phone, let it calculate meal and lodging allowances and mileage, and submit one clean PDF to your employer.<br>
 One small container, SQLite, no cloud, login with password or Pocket ID.
 
-[![CI](https://github.com/BlackDark/vc-geschaeftsausgabentest/actions/workflows/ci.yml/badge.svg)](https://github.com/BlackDark/vc-geschaeftsausgabentest/actions/workflows/ci.yml)
+[![CI](https://github.com/BlackDark/spesen/actions/workflows/ci.yml/badge.svg)](https://github.com/BlackDark/spesen/actions/workflows/ci.yml)
 [![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-blue)](LICENSE)
 
 </div>
@@ -26,7 +26,7 @@ Runs on any Linux server (amd64/arm64) behind a reverse proxy.
 
 ```bash
 mkdir spesen && cd spesen
-curl -O https://raw.githubusercontent.com/BlackDark/vc-geschaeftsausgabentest/main/compose.yaml
+curl -O https://raw.githubusercontent.com/BlackDark/spesen/main/compose.yaml
 mkdir secrets && openssl rand -hex 24 > secrets/setup_token
 # edit SPESEN_BASE_URL in compose.yaml, then:
 docker compose up -d

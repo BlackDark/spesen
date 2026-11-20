@@ -13,8 +13,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/export"
-	"github.com/blackdark/vc-geschaeftsausgabentest/internal/rates"
+	"github.com/blackdark/spesen/internal/export"
+	"github.com/blackdark/spesen/internal/rates"
 )
 
 // Error is a domain error with a stable code the UI translates.
