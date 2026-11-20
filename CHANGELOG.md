@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.2.1](https://github.com/BlackDark/spesen/compare/v0.2.0...v0.2.1) (2026-11-20)
+
+
+### Bug Fixes
+
+* **deps:** update go modules (non-major) ([#61](https://github.com/BlackDark/spesen/issues/61)) ([2c35eea](https://github.com/BlackDark/spesen/commit/2c35eea468682fc76b85ccaefdc2eed49f8988dc))
+* **deps:** update go modules (non-major) ([#74](https://github.com/BlackDark/spesen/issues/74)) ([57ba907](https://github.com/BlackDark/spesen/commit/57ba90740f388cc4d7975856983f8083f8496e6a))
+
+
+### Refactoring
+
+* **deps:** update dependencies (non-major) ([#62](https://github.com/BlackDark/spesen/issues/62)) ([726dbb2](https://github.com/BlackDark/spesen/commit/726dbb2830e2493e6d49d453ffae16ce9a63b37b))
+* **deps:** update dependencies (non-major) ([#75](https://github.com/BlackDark/spesen/issues/75)) ([842b095](https://github.com/BlackDark/spesen/commit/842b095807c26210698dbdd1257dc2c942282376))
+
 ## [0.2.0](https://github.com/BlackDark/spesen/compare/v0.1.2...v0.2.0) (2026-11-05)
 
 
